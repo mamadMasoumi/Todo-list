@@ -1,0 +1,205 @@
+@font-face {
+    font-family: 'vazir';
+    src: url('../font/vazir-font-v16.1.0/Vazir-Medium.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, input, button {
+    font-family: 'vazir';
+}
+
+input, button {
+    outline: 0;
+    border: 0;
+}
+
+#todo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;  
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+#intro {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../img/Grad.png');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 600px;
+    transition: all 1s ease-out;
+    z-index: 2;
+}
+
+#intro:not(.active) {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+#intro-title-div {
+    font-size: 2.4vw;
+    position: relative;
+    top: 150px;
+}
+
+#continue-btn {
+    width: 270px;
+    height: 54px;
+    outline: 0;
+    border: 0;
+    background-color: #393433;
+    border-radius: 12px;
+    color: #FFFFFF;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#continue-btn:hover {
+    transform: scale(1.05);
+}
+
+#home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    gap: 80px;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 1s ease-out;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+}
+
+#home-container.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#task-input-div {
+    position: relative;
+    display: flex;
+    gap: 20px;
+    transition: all 0.8s ease-out;
+}
+
+#task-input {
+    width: 400px;
+    height: 56px;
+    padding: 14px 21px;
+    background-color: #F3EFEE;
+    border-radius: 12px;
+    font-size: 18px;
+    color: #222222;
+}
+
+#task-input-div:not(.starter) {
+    transform: translateY(790px);
+}
+
+#task-input:hover, #add-task-btn:hover {
+    transform: scale(1.05);
+}
+
+#add-task-btn {
+    width: 100px;
+    height: 56px;
+    border-radius: 12px;
+    font-size: 18px;
+    background-color: #393433;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#task-container {
+    width: 42vw;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+#day-title {
+    display: none;
+    justify-content: center;
+}
+
+.task-part {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+div.task-topic {
+    color: #D1A28B;
+    font-size: 16px;
+}
+
+.task-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 56px;
+    width: 100%;
+    background-color: #F3EFEE;
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.task:hover {
+    background-color: #e0e0e0;
+}
+
+.checkbox-div {
+    display: flex;
+}
+
+.task-checkbox {
+    appearance: none;
+}
+
+span.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.task.active {
+    border: 1px solid #393433c4;
+    background-color: inherit;
+    color: #393433c4;
+}
+
+div.icon {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 1.2vw;
+}
+
+img.icon {
+    width: 24px;
+    height: auto;
+}
+
+div.icon img.red-trash {
+    content: url('../img/red-trash.png');
+}

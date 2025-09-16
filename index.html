@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <div class="container" id="todo-container">
+            <!-- Intro -->
+        <div class="active" id="intro">
+            <div class="title-div" id="intro-title-div">
+                <h1 class="title" id="intro-title">Ready for list your tasks?</h1>
+            </div>
+            <button type="button" id="continue-btn">Continue</button>
+        </div>
+    
+        <!-- home page -->
+        <div class="" id="home-container">
+            <div class="title" id="beginer-title-div" style="display: none;">
+                <h1 id="beginer-title">Lets do it</h1>
+            </div>
+            <!-- task container -->
+            <div id="task-container">
+                <div class="title" id="day-title">
+                    <h1>Today</h1>
+                </div>
+                <ul class="task-list" id="task-list"></ul>
+            </div>
+            <!-- input -->
+            <div class="input starter" id="task-input-div">
+                <input type="text" class="input" id="task-input" placeholder="Write a task...">
+                <button type="button" class="btn" id="add-task-btn">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script/script.js"></script>
+</body>
+</html>
