@@ -14,7 +14,7 @@ let tasks = document.querySelectorAll('.task');
 document.addEventListener('DOMContentLoaded', ()=>{
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     if (tasks.length === 0) return;
-    
+
     introPage.classList.remove('active');
     homePage.classList.add('active');
     taskInput.focus();
@@ -50,7 +50,7 @@ introContinueBtn.addEventListener('mousedown', ()=>{
 
 addTaskBtn.addEventListener('mousedown', addTask);
 function addTask(checked, taskTxt, isSaved) {
-    console.log(isSaved);
+    console.log(isSaved);   
     
     beginerTitle.style.display = 'none';
     taskInputDiv.classList.remove('starter');
@@ -65,6 +65,7 @@ function addTask(checked, taskTxt, isSaved) {
     task.className = 'task';
     
     if (taskTxt === '') {
+        if (taskInput.value === '') return;
         taskTxt = taskInput.value;   
     }
     taskInput.value = '';  
