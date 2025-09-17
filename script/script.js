@@ -50,14 +50,11 @@ introContinueBtn.addEventListener('mousedown', ()=>{
 
 addTaskBtn.addEventListener('mousedown', addTask);
 function addTask(checked, taskTxt, isSaved) {
-    console.log(isSaved);   
-    
     beginerTitle.style.display = 'none';
     taskInputDiv.classList.remove('starter');
     taskInputDiv.style.position = 'absolute';
     dayTitle.style.display = 'flex';
           
-    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     for (let checkingTask of tasks) {
         if (checkingTask.text === taskInput.value) return;
     }
@@ -85,6 +82,7 @@ function addTask(checked, taskTxt, isSaved) {
     taskList.appendChild(task);        
 
     if (!isSaved) {
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
         tasks.push({'checked' : false, 'text' : taskTxt});
         localStorage.setItem('tasks', JSON.stringify(tasks));    
     }
@@ -108,17 +106,13 @@ function addTask(checked, taskTxt, isSaved) {
     trashIcon.addEventListener('mouseleave', ()=>{
         trashIcon.classList.remove('red-trash');
     });
+    console.log(tasks);
+    
     trashIcon.addEventListener('mousedown', ()=>{
         taskList.removeChild(task);
-        console.log('mamad');
-        
-        for (let checkingTask of tasks) {
-            if (checkingTask.text === taskTxt) {
-                tasks.pop(checkingTask);
-                localStorage.setItem('tasks', JSON.stringify(tasks));
-            }
-        }
-        
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        tasks = tasks.filter(t => t.text !== taskTxt);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
     });   
 }
 
@@ -135,7 +129,7 @@ function selectTask(task, txt) {
         }
     } else {
         task.firstElementChild.firstElementChild.nextElementSibling.innerHTML = `<img class="checkbox" src="./img/not-active-checkbox.png" alt="">`;
-        for (let checkingTask of tasks) {
+        for (let checkingTask of tasks) {            
             if (checkingTask.text === txt) {
                 checkingTask.checked = false;
             }       
